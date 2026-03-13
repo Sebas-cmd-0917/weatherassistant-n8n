@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeatherGo — Tu guía de viaje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Fondo con gradiente de nubes animadas -->
+  <div class="sky-bg">
+    <div class="cloud cloud-1">☁️</div>
+    <div class="cloud cloud-2">⛅</div>
+    <div class="cloud cloud-3">🌤️</div>
+  </div>
+
+  <main class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-emoji">🌦️</span>
+        <div class="logo-titles">
+          <h1 class="logo-text">WeatherGo</h1>
+          <span class="logo-sub">Asistente inteligente de viaje</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- CARD DEL FORMULARIO -->
+    <div class="card form-card">
+      <div class="card-header">
+        <span class="card-icon">🗺️</span>
+        <div>
+          <h2 class="card-title">Planea tu ruta</h2>
+          <p class="card-desc">Ingresa los datos y te decimos qué llevar</p>
+        </div>
+      </div>
+
+      <div class="form-body">
+
+        <div class="input-row">
+          <div class="input-group">
+            <span class="input-icon">📍</span>
+            <div class="input-wrap">
+              <label for="originInput">Origen</label>
+              <input type="text" id="originInput" placeholder="Ej: Medellín" autocomplete="off"/>
+            </div>
+          </div>
+
+          <div class="route-arrow">→</div>
+
+          <div class="input-group">
+            <span class="input-icon">🏁</span>
+            <div class="input-wrap">
+              <label for="destinationInput">Destino</label>
+              <input type="text" id="destinationInput" placeholder="Ej: Cartagena" autocomplete="off"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group full">
+            <span class="input-icon">📅</span>
+            <div class="input-wrap">
+              <label for="dateInput">Fecha del viaje</label>
+              <input type="date" id="dateInput"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="transport-section">
+          <p class="transport-label">🚦 ¿Cómo vas a viajar?</p>
+          <div class="transport-grid">
+            <button class="transport-btn" data-value="carro" onclick="selectTransport(this)">
+              <span class="t-icon">🚗</span>
+              <span class="t-label">Carro</span>
+            </button>
+            <button class="transport-btn" data-value="moto" onclick="selectTransport(this)">
+              <span class="t-icon">🏍️</span>
+              <span class="t-label">Moto</span>
+            </button>
+            <button class="transport-btn" data-value="a pie" onclick="selectTransport(this)">
+              <span class="t-icon">🚶</span>
+              <span class="t-label">A pie</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="errorMsg" class="error-msg hidden"></div>
+
+        <button class="btn-primary" onclick="consultWeather()">
+          <span>🔍 Consultar clima</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- LOADING -->
+    <div id="loading" class="card loading-card hidden">
+      <div class="loading-inner">
+        <div class="weather-spinner">🌀</div>
+        <p id="loadingText">Analizando tu ruta...</p>
+        <div class="loading-bar"><div class="loading-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- RESULTADO -->
+    <div id="result" class="result-wrapper hidden">
+
+      <div class="route-summary">
+        <span id="originBadge" class="badge badge-origin"></span>
+        <span class="badge-arrow">✈️</span>
+        <span id="destBadge" class="badge badge-dest"></span>
+        <span id="dateBadge" class="badge badge-date"></span>
+        <span id="transportBadge" class="badge badge-transport"></span>
+      </div>
+
+      <div class="card result-card">
+        <div class="result-header">
+          <span class="result-icon">🤖</span>
+          <div>
+            <h3 class="result-title">Tu reporte de viaje</h3>
+            <p class="result-sub">Generado por IA en tiempo real</p>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div id="recommendation" class="result-body"></div>
+      </div>
+
+      <button class="btn-secondary" onclick="resetForm()">
+        ↩ Consultar otra ruta
+      </button>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>⚡ Powered by n8n · Open-Meteo · Google Gemini</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
