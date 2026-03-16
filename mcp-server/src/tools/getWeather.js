@@ -1,15 +1,6 @@
 import fetch from "node-fetch";
 
-/**
- * Tool: consultar_clima_ruta
- *
- * Llama al webhook de n8n con los datos del viaje.
- * n8n se encarga de geocodificar, calcular la ruta,
- * consultar el clima en 5 puntos y generar el reporte con IA.
- *
- * IMPORTANTE: Actualizar N8N_WEBHOOK_URL cuando cambie ngrok.
- */
-const N8N_WEBHOOK_URL = "https://TU-URL-NGROK.ngrok-free.dev/webhook/clima-ruta";
+const N8N_WEBHOOK_URL = "https://dyan-tricksier-untediously.ngrok-free.dev/webhook/clima-ruta";
 
 export async function consultarClimaRuta({ origin, destination, travelDate, transport }) {
   const response = await fetch(N8N_WEBHOOK_URL, {
