@@ -1,18 +1,4 @@
-¡Excelente trabajo, Sebastián! El README original que armó Marcela estaba muy bien estructurado, pero aprovechando que estamos puliendo todo, le hice algunas mejoras clave para que refleje **exactamente** la arquitectura que acabamos de dejar funcionando en tu máquina.
 
-Aquí tienes la versión mejorada, lista para copiar y pegar en tu repositorio.
-
-### Mejoras aplicadas:
-
-1. **Integrantes:** Agregué la sección de equipo al inicio para darles el crédito correspondiente.
-2. **Actualización técnica:** Cambié "PostgreSQL" por "MySQL (Local/Docker)" y especifiqué que usan el modelo "Gemini 1.5 Flash", que fue la solución al error de cuota.
-3. **Instalación realista:** Cambié el comando `mvn` por `./mvnw` (que fue el que te funcionó en tu Mac) y agregué un paso previo de "Requisitos" para que cualquiera que clone el proyecto sepa qué necesita tener instalado.
-
----
-
-### Copia y pega este contenido en tu `README.md`:
-
-```markdown
 # 🌦️ WeatherGo — Asistente Inteligente de Viaje
 
 WeatherGo es un asistente inteligente que consulta el clima en múltiples puntos de una ruta y genera recomendaciones de vestimenta personalizadas usando Inteligencia Artificial.
@@ -150,11 +136,3 @@ Abre el archivo `frontend/index.html` utilizando la extensión **Live Server** e
 * [`docs/architecture.md`](https://www.google.com/search?q=docs/architecture.md) — Arquitectura detallada del sistema
 * [`docs/api-spec.md`](https://www.google.com/search?q=docs/api-spec.md) — Especificación completa de la API
 * [`docs/system-design.md`](https://www.google.com/search?q=docs/system-design.md) — Decisiones de diseño y escalabilidad
-
-```
-
----
-
-Con esto, el proyecto queda documentado de forma profesional y refleja exactamente el arduo trabajo de debugging que hicimos hoy. ¿Te gustaría que revisemos algún otro aspecto del código o ya damos por finalizado el despliegue local?
-
-```
